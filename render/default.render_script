@@ -1,6 +1,8 @@
-world_width=720
-world_height=960
-aspect=world_width/world_height
+local world_width=720
+local world_height=960
+local aspect=world_width/world_height
+local render_helper=require ("render.render_helper")
+
 
 function init(self)
     self.tile_pred = render.predicate({"tile"})
@@ -13,11 +15,12 @@ function init(self)
     self.clear_color.y = sys.get_config("render.clear_color_green", 0)
     self.clear_color.z = sys.get_config("render.clear_color_blue", 0)
     self.clear_color.w = sys.get_config("render.clear_color_alpha", 0)
-
     self.view = vmath.matrix4()
+    
 end
 
 function update(self)
+
     render.set_depth_mask(true)
     render.clear({[render.BUFFER_COLOR_BIT] = self.clear_color, [render.BUFFER_DEPTH_BIT] = 1, [render.BUFFER_STENCIL_BIT] = 0})
 	
@@ -30,6 +33,8 @@ function update(self)
 		delta_width=(window_width-window_height*aspect)
 		new_world_width=world_width	
 	end
+	render_helper.updateWorld(new_world_width,world_height,delta_width/2,0,window_width-delta_width,window_height)
+	
 	
     render.set_viewport(delta_width/2, 0, window_width-delta_width, render.get_window_height())
     render.set_view(self.view)

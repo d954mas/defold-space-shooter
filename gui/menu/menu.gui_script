@@ -1,4 +1,7 @@
+local render_helper=require ("render.render_helper")
+
 function init(self)
+	print("init")
     msg.post(".","acquire_input_focus")
 end
 
@@ -20,14 +23,20 @@ end
 function on_input(self, action_id, action)
 	local boolean clicked = (action_id == hash("click") or action_id == hash("touch")) and action.pressed
    	if(clicked) then
+   		--print(action.x .. " " .. action.y)
+   		world_position=render_helper.action_to_position(action)
+   		print("world:" .. world_position.x .. " " .. world_position.y)
    		if(gui.pick_node(gui.get_node("button_play/button"), action.x, action.y)) then
    			print("play clicked")
+   			msg.post("main:/loader","show_game")
    		end
    		if(gui.pick_node(gui.get_node("button_shop/button"), action.x, action.y)) then
    			print("shop clicked")
+   			msg.post("main:/loader","show_shop")
    		end
    		if(gui.pick_node(gui.get_node("button_highscores/button"), action.x, action.y)) then
    			print("highscores clicked")
+   			msg.post("main:/loader","show_highscores")
    		end
    	end
 end

@@ -1,0 +1,45 @@
+go.property("speed", 500)
+local delta_move=15 -- do not move if distance less then delta_move
+
+local render_helper=require ("render.render_helper")
+
+function init(self)
+    msg.post(".","acquire_input_focus")
+    self.position=go.get_position("spaceship")
+    self.velocity=vmath.vector3(0,0,0)
+end
+
+
+function update(self, dt)
+    if(self.velocity.x ~=0 and self.velocity.y ~= 0)then
+    	--print("move")
+    	self.velocity.x=self.velocity.x*self.speed*dt
+    	self.velocity.y=self.velocity.y*self.speed*dt
+    	self.position=self.position+self.velocity
+    	
+    	go.set_position(self.position,"spaceship")
+    end
+    
+end
+
+function on_message(self, message_id, message, sender)
+    -- Add message-handling code here
+    -- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+    local touched = (action_id == hash("click") or action_id == hash("touch"))
+	if(touched and not action.released) then
+		self.touch_position=render_helper.action_to_position(action)
+		self.velocity.x=self.touch_position.x-self.position.x
+		self.velocity.y=self.touch_position.y-self.position.y
+		if(vmath.length(self.velocity)>delta_move)then
+			self.velocity=vmath.normalize(self.velocity)
+		else
+			self.velocity=vmath.vector3(0,0,0)
+		end
+	else 
+		self.velocity=vmath.vector3(0,0,0)
+	end	
+end
+

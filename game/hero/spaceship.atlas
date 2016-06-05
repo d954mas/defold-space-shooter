@@ -1,0 +1,31 @@
+animations {
+  id: "spin"
+  images {
+    image: "/game/hero/images/spaceship_00.png"
+  }
+  images {
+    image: "/game/hero/images/spaceship_01.png"
+  }
+  images {
+    image: "/game/hero/images/spaceship_02.png"
+  }
+  images {
+    image: "/game/hero/images/spaceship_03.png"
+  }
+  images {
+    image: "/game/hero/images/spaceship_04.png"
+  }
+  images {
+    image: "/game/hero/images/spaceship_05.png"
+  }
+  images {
+    image: "/game/hero/images/spaceship_06.png"
+  }
+  images {
+    image: "/game/hero/images/spaceship_07.png"
+  }
+  images {
+    image: "/game/hero/images/spaceship_08.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}

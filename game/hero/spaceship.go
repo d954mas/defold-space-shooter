@@ -1,3 +1,18 @@
+components {
+  id: "script"
+  component: "/game/hero/spaceship.script"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
 embedded_components {
   id: "collisionobject"
   type: "collisionobject"
@@ -46,7 +61,7 @@ embedded_components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/spaceship/spaceship.atlas\"\n"
+  data: "tile_set: \"/game/hero/spaceship.atlas\"\n"
   "default_animation: \"spin\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
