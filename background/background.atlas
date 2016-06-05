@@ -1,18 +1,16 @@
 images {
-  image: "/background/bg.png"
+  image: "/background/images/bg.png"
 }
 images {
-  image: "/background/earthlike_planet.png"
+  image: "/background/images/earthlike_planet.png"
 }
 images {
-  image: "/background/gas_planet.png"
+  image: "/background/images/gas_planet.png"
 }
 images {
-  image: "/background/ice_planet.png"
+  image: "/background/images/ice_planet.png"
 }
 images {
-  image: "/background/ring_planet.png"
+  image: "/background/images/ring_planet.png"
 }
-margin: 0
 extrude_borders: 1
-inner_padding: 0

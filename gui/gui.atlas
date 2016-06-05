@@ -1,0 +1,9 @@
+images {
+  image: "/gui/images/button_down.png"
+}
+images {
+  image: "/gui/images/button_up.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

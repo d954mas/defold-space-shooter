@@ -3,13 +3,14 @@ title = Side-scroller
 
 [bootstrap]
 main_collection = /main/main.collectionc
+render = /render/default.renderc
 
 [input]
 game_binding = /input/game.input_bindingc
 
 [display]
-width = 1280
-height = 720
+width = 480
+height = 640
 
 [physics]
 scale = 0.02

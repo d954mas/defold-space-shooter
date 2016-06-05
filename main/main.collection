@@ -1,10 +1,10 @@
 name: "parallax"
 instances {
-  id: "factory"
-  prototype: "/stars/factory.go"
+  id: "menu"
+  prototype: "/gui/menu/menu.go"
   position {
-    x: 1312.0
-    y: 360.0
+    x: 209.66061
+    y: 400.0
     z: 0.5
   }
   rotation {
@@ -20,111 +20,11 @@ instances {
   }
 }
 instances {
-  id: "large_planets1"
-  prototype: "/background/large_planets.go"
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.2
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-instances {
-  id: "large_planets2"
-  prototype: "/background/large_planets.go"
-  position {
-    x: 2560.0
-    y: 0.0
-    z: 0.2
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-instances {
-  id: "main"
-  prototype: "/main/main.go"
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-instances {
-  id: "small_planets1"
-  prototype: "/background/small_planets.go"
-  position {
-    x: 370.1839
-    y: 219.59415
-    z: 0.1
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 0.3
-    y: 0.3
-    z: 0.3
-  }
-}
-instances {
-  id: "small_planets2"
-  prototype: "/background/small_planets.go"
-  position {
-    x: 1522.288
-    y: 58.73095
-    z: 0.1
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 0.3
-    y: 0.3
-    z: 0.3
-  }
-}
-instances {
   id: "spaceship"
   prototype: "/spaceship/spaceship.go"
   position {
-    x: 209.66061
-    y: 400.0
+    x: 720.0
+    y: 400.48145
     z: 0.5
   }
   rotation {
@@ -164,8 +64,8 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: 640.0
-    y: 360.0
+    x: 360.0
+    y: 480.0
     z: 0.0
   }
   rotation {
@@ -175,7 +75,7 @@ embedded_instances {
     w: 1.0
   }
   scale3 {
-    x: 1.0
+    x: 0.5625
     y: 1.0
     z: 1.0
   }
