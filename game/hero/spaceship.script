@@ -1,14 +1,18 @@
-go.property("speed", 5000)
+go.property("speed", 300)
+go.property("bullet_speed",0.4)
 local render_helper=require ("render.render_helper")
 
 function init(self)
     msg.post(".","acquire_input_focus")
-    self.position=go.get_position("spaceship")
+    self.position=go.get_position()
     self.max_move=vmath.vector3(0,0,0)
+    self.half=vmath.vector3(56,44,0)
+    self.last_shot=0
 end
 
 
 function update(self, dt)
+	self.last_shot=self.last_shot+dt
     if(vmath.length(self.max_move) ~=0)then
     	local velocity=vmath.normalize(self.max_move)
     	velocity=velocity*self.speed*dt
@@ -16,9 +20,10 @@ function update(self, dt)
     		velocity=self.max_move
     	end
     	self.position=self.position+velocity
-    	go.set_position(self.position,"spaceship")
+    	go.set_position(self.position)
+    	--print(go.get_position())
     end
-    
+  	    
 end
 
 function on_message(self, message_id, message, sender)
@@ -27,11 +32,27 @@ end
 function on_input(self, action_id, action)
     local touched = (action_id == hash("click") or action_id == hash("touch"))
 	if(touched and not action.released) then
+		--MOVEMENT
 		self.touch_position=render_helper.action_to_position(action)
-		self.max_move=self.touch_position-self.position
+		self.touch_position.x=render_helper.clamp(self.touch_position.x,self.half.x,720-self.half.x)
+		self.touch_position.y=render_helper.clamp(self.touch_position.y,self.half.y,960-self.half.y)
+		self.max_move=self.touch_position - self.position
 		self.max_move.z=0
+		
+		--FIRE
+		
+		if(self.last_shot>self.bullet_speed)then
+    		self.last_shot=0
+    		local bullet_position=vmath.vector3(self.position);
+    		bullet_position.y=bullet_position.y+self.half.y
+    		local bullet = factory.create("#bullet_factory", bullet_position, nil, {}, 1)
+    	end
 	else 
 		self.max_move=vmath.vector3(0,0,0)
 	end	
+end
+
+function final(self)
+    msg.post(".","release_input_focus")
 end
 
