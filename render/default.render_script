@@ -16,6 +16,7 @@ function init(self)
     self.clear_color.z = sys.get_config("render.clear_color_blue", 0)
     self.clear_color.w = sys.get_config("render.clear_color_alpha", 0)
     self.view = vmath.matrix4()
+    self.player_position_x=0
     
 end
 
@@ -33,7 +34,7 @@ function update(self)
 		delta_width=(window_width-window_height*aspect)
 		new_world_width=world_width	
 	end
-	render_helper.updateWorld(new_world_width,world_height,delta_width/2,0,window_width-delta_width,window_height)
+	
 	
 	
     render.set_viewport(delta_width/2, 0, window_width-delta_width, render.get_window_height())
@@ -45,9 +46,19 @@ function update(self)
     render.enable_state(render.STATE_BLEND)
     render.set_blend_func(render.BLEND_SRC_ALPHA, render.BLEND_ONE_MINUS_SRC_ALPHA)
     render.disable_state(render.STATE_CULL_FACE)
+	local camera_x=0
+	if(delta_width ~= 0)then
+		render.set_projection(vmath.matrix4_orthographic(0, new_world_width, 0, world_height, -1, 1))	
+	else
+		-- 112 is player size in pixels
+		-- player x position 0 and 720-112
+		local player_percent_move=(self.player_position_x-56)/(world_width-112)
+		--print(self.player_position_x)
+		camera_x=(world_width-new_world_width)*player_percent_move
+    	render.set_projection(vmath.matrix4_orthographic(camera_x, new_world_width+camera_x, 0, world_height, -1, 1))	   	
+	end
 	
-	render.set_projection(vmath.matrix4_orthographic(0, new_world_width, 0, world_height, -1, 1))	
-
+	
     render.draw(self.tile_pred)
     render.draw(self.particle_pred)
     render.draw_debug3d()
@@ -66,6 +77,8 @@ function update(self)
 
     render.set_depth_mask(false)
     render.draw_debug2d()
+    
+    render_helper.updateWorld(new_world_width,world_height,delta_width/2,0,window_width-delta_width,window_height,camera_x)
 end
 
 function on_message(self, message_id, message)
@@ -73,5 +86,8 @@ function on_message(self, message_id, message)
         self.clear_color = message.color
     elseif message_id == hash("set_view_projection") then
         self.view = message.view
+    elseif message_id == hash("player_position") then
+    	 self.player_position_x = (message.position.x)
+    	 
     end
 end

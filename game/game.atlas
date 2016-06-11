@@ -1,3 +1,9 @@
+images {
+  image: "/game/asteroid/astroid.png"
+}
+images {
+  image: "/game/bullet/laserBlue01.png"
+}
 animations {
   id: "spin"
   images {
@@ -28,4 +34,10 @@ animations {
     image: "/game/hero/images/spaceship_08.png"
   }
   playback: PLAYBACK_LOOP_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
 }
+margin: 0
+extrude_borders: 2
+inner_padding: 0

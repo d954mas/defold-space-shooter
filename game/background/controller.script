@@ -1,6 +1,10 @@
+go.property("asteroid_spawn_speed",1)
+go.property("time_to_next_speed",4)
+
 function init(self)
-    -- Add initialization code here
-    -- Remove this function if not needed
+	self.last_speed_changed=0
+    self.last_asteroid_time=0;
+   
 end
 
 function final(self)
@@ -9,8 +13,26 @@ function final(self)
 end
 
 function update(self, dt)
-    -- Add update code here
-    -- Remove this function if not needed
+    self.last_asteroid_time=self.last_asteroid_time+dt
+    self.last_speed_changed=self.last_speed_changed+dt
+    
+    if(self.last_speed_changed>self.time_to_next_speed)then
+    	self.last_speed_changed=0;
+    	self.asteroid_spawn_speed=self.asteroid_spawn_speed*0.9
+    end
+    
+    if(self.last_asteroid_time>self.asteroid_spawn_speed) then
+    	self.last_asteroid_time=0;
+    	spawn_asteroid(self)
+    end    
+end
+
+function spawn_asteroid(self)
+	local position=vmath.vector3(math.random(20,700),math.random(1100,1450),1)
+    local rotation=math.random(0,359)
+   	local scale= math.random(3,7)*0.1
+  	local asteroid = factory.create("#asteroid_factory", position, nil, {}, scale)
+  	go.set(asteroid,"euler.z",rotation)
 end
 
 function on_message(self, message_id, message, sender)

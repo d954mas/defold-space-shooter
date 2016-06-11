@@ -1,23 +1,6 @@
 components {
   id: "script"
-  component: "/game/hero/spaceship.script"
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-}
-embedded_components {
-  id: "bullet_factory"
-  type: "factory"
-  data: "prototype: \"/game/bullet/bullet.go\"\n"
-  ""
+  component: "/game/asteroid/asteroid.script"
   position {
     x: 0.0
     y: 0.0
@@ -38,14 +21,15 @@ embedded_components {
   "mass: 0.0\n"
   "friction: 0.1\n"
   "restitution: 0.5\n"
-  "group: \"hero\"\n"
-  "mask: \"asteroid\"\n"
+  "group: \"asteroid\"\n"
+  "mask: \"hero\"\n"
+  "mask: \"bullet\"\n"
   "embedded_collision_shape {\n"
   "  shapes {\n"
   "    shape_type: TYPE_SPHERE\n"
   "    position {\n"
   "      x: 0.0\n"
-  "      y: -6.287068\n"
+  "      y: 0.0\n"
   "      z: 0.0\n"
   "    }\n"
   "    rotation {\n"
@@ -57,26 +41,7 @@ embedded_components {
   "    index: 0\n"
   "    count: 1\n"
   "  }\n"
-  "  shapes {\n"
-  "    shape_type: TYPE_BOX\n"
-  "    position {\n"
-  "      x: -0.3025\n"
-  "      y: -11.1925\n"
-  "      z: 0.0\n"
-  "    }\n"
-  "    rotation {\n"
-  "      x: 0.0\n"
-  "      y: 0.0\n"
-  "      z: 0.0\n"
-  "      w: 1.0\n"
-  "    }\n"
-  "    index: 1\n"
-  "    count: 3\n"
-  "  }\n"
-  "  data: 28.0\n"
-  "  data: 53.56\n"
-  "  data: 6.975\n"
-  "  data: 10.0\n"
+  "  data: 95.60355\n"
   "}\n"
   "linear_damping: 0.0\n"
   "angular_damping: 0.0\n"
@@ -98,7 +63,7 @@ embedded_components {
   id: "sprite"
   type: "sprite"
   data: "tile_set: \"/game/game.atlas\"\n"
-  "default_animation: \"spin\"\n"
+  "default_animation: \"astroid\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""
