@@ -3,8 +3,8 @@ instances {
   id: "spaceship"
   prototype: "/game/hero/spaceship.go"
   position {
-    x: 0.0
-    y: 0.0
+    x: 360.0
+    y: 40.0
     z: 1.0
   }
   rotation {
@@ -24,7 +24,7 @@ embedded_instances {
   id: "controller"
   data: "components {\n"
   "  id: \"script\"\n"
-  "  component: \"/game/background/controller.script\"\n"
+  "  component: \"/game/controller.script\"\n"
   "  position {\n"
   "    x: 0.0\n"
   "    y: 0.0\n"
@@ -42,6 +42,61 @@ embedded_instances {
   "  type: \"factory\"\n"
   "  data: \"prototype: \\\"/game/asteroid/asteroid.go\\\"\\n"
   "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"explosion\"\n"
+  "  type: \"sound\"\n"
+  "  data: \"sound: \\\"/sound/explosion.wav\\\"\\n"
+  "looping: 0\\n"
+  "group: \\\"effect\\\"\\n"
+  "gain: 1.0\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "game_over"
+  data: "components {\n"
+  "  id: \"gui\"\n"
+  "  component: \"/gui/gameOver/game_over.gui\"\n"
   "  position {\n"
   "    x: 0.0\n"
   "    y: 0.0\n"

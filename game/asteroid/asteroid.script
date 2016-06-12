@@ -15,15 +15,14 @@ function update(self, dt)
     self.position=self.position+self.velocity * self.speed *dt
     go.set_position(self.position)
     if(self.position.y<-100) then
-    	go.delete()
+    	msg.post("controller","delete_asteroid",{asteroid=go.get_id()})
     end
 end
 
 function on_message(self, message_id, message, sender)
     if message_id == hash("contact_point_response") then
-    	--if (message.group==hash("bullet")) then
-    		go.delete(sender)
-    	--end
+    		msg.post("controller","explosion")
+    		msg.post("controller","delete_asteroid",{asteroid=go.get_id()})
   	end
 end
 

@@ -1,0 +1,97 @@
+go.property("asteroid_spawn_speed",1)
+go.property("time_to_next_speed",4)
+
+local function init_vars(self) 
+	self.last_speed_changed=0
+    self.last_asteroid_time=0;
+    self.spawned_objects = {}
+    self.player_die=false
+    self.current_asteroid_speed=self.asteroid_spawn_speed
+    msg.post("game_over","disable")
+end
+
+function init(self)  
+    init_vars(self)
+end
+
+local function spawn_asteroid(self)
+	local position=vmath.vector3(math.random(20,700),math.random(1100,1450),1)
+    local rotation=math.random(0,359)
+   	local scale= math.random(3,7)*0.1
+  	local asteroid = factory.create("#asteroid_factory", position, nil, {}, scale)
+  	go.set(asteroid,"euler.z",rotation)
+  	table.insert(self.spawned_objects,asteroid)
+end
+
+function update(self, dt)
+    self.last_asteroid_time=self.last_asteroid_time+dt
+    self.last_speed_changed=self.last_speed_changed+dt
+    
+    if(not self.player_die and self.last_speed_changed>self.time_to_next_speed)then
+    	self.last_speed_changed=0;
+    	self.current_asteroid_speed=self.current_asteroid_speed*0.9
+    end
+    
+    if(self.last_asteroid_time>self.current_asteroid_speed) then
+    	self.last_asteroid_time=0;
+    	spawn_asteroid(self)
+    end    
+end
+
+
+
+local function delete_asteroids(self)
+	if(self.spawned_objects) then
+		for _,spawned_id in pairs(self.spawned_objects) do
+			go.delete(spawned_id)
+		end	
+		self.spawned_objects={}
+	end	
+end
+
+local function delete_asteroid(self,id)
+	if(self.spawned_objects) then
+		for k,v in ipairs(self.spawned_objects) do
+			if(v==id) then
+				table.remove(self.spawned_objects,k)
+				go.delete(v)
+				return
+			end
+		end
+	end	
+end
+
+local function reset(self)
+	delete_asteroids(self)
+    init_vars(self)
+    msg.post("spaceship","reset")
+end
+
+function on_message(self, message_id, message, sender)
+    if (message_id==hash("delete_asteroid")) then
+    	local asteroid = message.asteroid
+    	delete_asteroid(self,asteroid)
+    elseif(message_id==hash("player_die")) then
+    	--if more then one collision with player he can died 2 or more times! i think=)
+    	if(not self.player_die) then
+    		self.player_die=true
+    		msg.post("game_over","enable")
+    	end
+    elseif(message_id==hash("reset")) then
+    	reset(self)
+    elseif(message_id==hash("explosion"))then
+    	msg.post("#explosion","play_sound",{gain=0.4})
+    end
+end
+
+
+
+function on_input(self, action_id, action)
+    -- Add input-handling code here
+    -- Remove this function if not needed
+end
+
+function on_reload(self)
+    -- Add reload-handling code here
+    -- Remove this function if not needed
+end

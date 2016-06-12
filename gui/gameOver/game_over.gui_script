@@ -1,0 +1,42 @@
+local render_helper=require ("render.render_helper")
+
+function init(self)
+    msg.post(".","acquire_input_focus")
+end
+
+
+function final(self)
+    -- Add finalization code here
+    -- Remove this function if not needed
+end
+
+function update(self, dt)
+    -- Add update code here
+    -- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+    -- Add message-handling code here
+    -- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+    local boolean clicked = (action_id == hash("click") or action_id == hash("touch")) and action.pressed
+   	if(clicked) then
+   		--print(action.x .. " " .. action.y)
+   		world_position=render_helper.action_to_position(action)
+   		print("world:" .. world_position.x .. " " .. world_position.y)
+   		if(gui.pick_node(gui.get_node("retry/button"), action.x, action.y)) then
+   			print("retry clicked")
+   			msg.post("controller","reset")
+   		elseif(gui.pick_node(gui.get_node("main_menu/button"), action.x, action.y)) then	
+   			print("menu clicked")
+   			msg.post("main:/loader","show_menu")
+   		end
+   	end
+end
+
+function on_reload(self)
+    -- Add input-handling code here
+    -- Remove this function if not needed
+end
