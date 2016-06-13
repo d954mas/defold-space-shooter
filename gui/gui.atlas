@@ -4,6 +4,18 @@ images {
 images {
   image: "/gui/images/button_up.png"
 }
+images {
+  image: "/gui/images/audioOff.png"
+}
+images {
+  image: "/gui/images/audioOn.png"
+}
+images {
+  image: "/gui/images/musicOff.png"
+}
+images {
+  image: "/gui/images/musicOn.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0
