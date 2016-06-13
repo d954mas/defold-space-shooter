@@ -627,8 +627,8 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/musicOn"
   id: "music"
-  xanchor: XANCHOR_LEFT
-  yanchor: YANCHOR_BOTTOM
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
   pivot: PIVOT_SW
   adjust_mode: ADJUST_MODE_FIT
   layer: "buttons"
@@ -681,8 +681,8 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/audioOn"
   id: "sound"
-  xanchor: XANCHOR_RIGHT
-  yanchor: YANCHOR_BOTTOM
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
   pivot: PIVOT_SE
   adjust_mode: ADJUST_MODE_FIT
   layer: ""
