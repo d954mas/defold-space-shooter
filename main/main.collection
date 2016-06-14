@@ -116,7 +116,7 @@ embedded_instances {
   "  type: \"sound\"\n"
   "  data: \"sound: \\\"/music/main.ogg\\\"\\n"
   "looping: 1\\n"
-  "group: \\\"master\\\"\\n"
+  "group: \\\"music\\\"\\n"
   "gain: 1.0\\n"
   "\"\n"
   "  position {\n"

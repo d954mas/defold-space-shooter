@@ -4,6 +4,8 @@ local settings ={}
 	
 function init(self)
     msg.post(".","acquire_input_focus")
+    --reset camera to middle
+    msg.post("@render:","player_position",{position = vmath.vector3(360,0,0)})
     local file_path = sys.get_save_file("game","settings")
     settings = sys.load(file_path)
     --if table empty
@@ -17,9 +19,9 @@ function init(self)
    		function(value)
    			settings.play_music = value
    			if(value)then
-   			sound.set_group_gain(hash("master"),1)
+   			sound.set_group_gain(hash("music"),1)
    			else
-   			sound.set_group_gain(hash("master"),0)
+   			sound.set_group_gain(hash("music"),0)
    			end
    		end
    	self.musicCheckBox.setChecked(settings.play_music)	

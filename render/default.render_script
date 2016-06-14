@@ -33,6 +33,7 @@ function update(self)
 	if(new_world_width>world_width)then
 		delta_width=(window_width-window_height*aspect)
 		new_world_width=world_width	
+		
 	end
 	
 	
