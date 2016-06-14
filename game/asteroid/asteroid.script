@@ -22,7 +22,11 @@ end
 function on_message(self, message_id, message, sender)
     if message_id == hash("contact_point_response") then
     		msg.post("controller","explosion")
-    		msg.post("controller","delete_asteroid",{asteroid=go.get_id()})
+    		go.set_scale(go.get_scale()*2)
+    		msg.post("#sprite", "play_animation", {id = hash("explosion")})
+    		msg.post("#collisionobject","disable")
+  	elseif(message_id == hash("animation_done")) then
+  		msg.post("controller","delete_asteroid",{asteroid=go.get_id()})
   	end
 end
 

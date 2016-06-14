@@ -38,6 +38,283 @@ animations {
   flip_horizontal: 0
   flip_vertical: 0
 }
+animations {
+  id: "explosion"
+  images {
+    image: "/game/images/explosion/explosion1_0001.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0002.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0003.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0004.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0005.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0006.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0007.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0008.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0009.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0010.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0011.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0012.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0013.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0014.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0015.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0016.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0017.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0018.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0019.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0020.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0021.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0022.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0023.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0024.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0025.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0026.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0027.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0028.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0029.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0030.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0031.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0032.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0033.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0034.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0035.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0036.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0037.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0038.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0039.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0040.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0041.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0042.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0043.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0044.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0045.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0046.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0047.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0048.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0049.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0050.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0051.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0052.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0053.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0054.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0055.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0056.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0057.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0058.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0059.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0060.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0061.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0062.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0063.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0064.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0065.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0066.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0067.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0068.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0069.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0070.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0071.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0072.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0073.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0074.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0075.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0076.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0077.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0078.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0079.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0080.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0081.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0082.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0083.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0084.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0085.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0086.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0087.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0088.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0089.png"
+  }
+  images {
+    image: "/game/images/explosion/explosion1_0090.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 45
+  flip_horizontal: 0
+  flip_vertical: 0
+}
 margin: 0
 extrude_borders: 2
 inner_padding: 0

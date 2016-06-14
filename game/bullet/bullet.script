@@ -3,6 +3,7 @@ go.property("speed", 700)
 function init(self)
     self.position=go.get_position()
     self.velocity=vmath.vector3(0,1,0)
+    particlefx.play("#particlefx")
 end
 
 function final(self)
@@ -14,12 +15,14 @@ function update(self, dt)
    go.set_position(self.position)
    if(self.position.y>1200 or self.position.y<0)then
    		go.delete()
+   		particlefx.stop("#particlefx")
    end
 end
 
 function on_message(self, message_id, message, sender)
      if message_id == hash("contact_point_response") then
     	if (message.group==hash("asteroid")) then
+    		particlefx.stop("#particlefx")
     		go.delete()
     	end
   	end
