@@ -34,7 +34,9 @@ function init(self)
    			sound.set_group_gain(hash("effect"),0)
    			end
    		end
-   	self.soundCheckBox.setChecked(settings.play_sound)	  		  	
+   	self.soundCheckBox.setChecked(settings.play_sound)
+   	self.button_play=gui_helper.get_button("button_up","button_down",gui.get_node("button_play/button"))	  		  	
+	print(self.button_play)
 end
 
 function final(self)
@@ -46,25 +48,17 @@ function final(self)
 end
 
 function on_input(self, action_id, action)
-	local boolean clicked = (action_id == hash("click") or action_id == hash("touch")) and action.pressed
-   	if(clicked) then
-   		world_position=render_helper.action_to_position(action)
-   		print("world:" .. world_position.x .. " " .. world_position.y)
-   		if(gui.pick_node(gui.get_node("button_play/button"), action.x, action.y)) then
-   			print("play clicked")
+	local boolean clicked = (action_id == hash("click") or action_id == hash("touch"))
+	--if(clicked) then
+		if(self.button_play.clicked(action))then
    			msg.post("main:/loader","show_game")
-   		elseif(gui.pick_node(gui.get_node("button_shop/button"), action.x, action.y)) then
-   			print("shop clicked")
-   			msg.post("main:/loader","show_shop")
-   		elseif(gui.pick_node(gui.get_node("button_highscores/button"), action.x, action.y)) then
-   			print("highscores clicked")
-   			msg.post("main:/loader","show_highscores")
-   		elseif(self.musicCheckBox.clicked(action.x, action.y)) then
+   		elseif(self.musicCheckBox.clicked(action)) then
    			print("music clicked")
-   		elseif(self.soundCheckBox.clicked(action.x,action.y)) then
-   			print("sound clicked")
-   		end
-   	end
+   		elseif(self.soundCheckBox.clicked(action)) then
+   			print("sound clicked")	
+   		--end
+	end
+   
 end
 
 function on_reload(self)

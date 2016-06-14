@@ -15,8 +15,8 @@ function M.getCheckBox(checked,imageOn,imageOff,node)
 			return checkBox
 		end
 	checkBox.clicked = 
-		function(x,y)
-			if(gui.pick_node(node, x, y))then
+		function(action)
+			if(gui.pick_node(node, action.x, action.y) and action.pressed)then
 				checkBox.setChecked(not checkBox.checked)
 				return true
 			else
@@ -25,6 +25,27 @@ function M.getCheckBox(checked,imageOn,imageOff,node)
 		end
 	checkBox.setChecked(checked)	
 	return checkBox		
+end
+
+function M.get_button(up,down,node)
+	local button = {up=up, down=down,over=nil,node=node}
+	button.clicked =
+		 function(action)
+			if(gui.pick_node(node, action.x,action.y)) then
+				if(action.released)then
+					print("clicked")
+					gui.play_flipbook(node,up)
+					return true
+				elseif(action.pressed or not(action.repeated == nil)) then
+					gui.play_flipbook(node,down)
+					return false
+				end	
+			else
+				gui.play_flipbook(node,up)
+				return false
+			end
+		end
+	return button	
 end
 
 return M
