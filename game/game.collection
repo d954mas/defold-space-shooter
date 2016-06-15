@@ -65,7 +65,7 @@ embedded_instances {
   "embedded_components {\n"
   "  id: \"explosion\"\n"
   "  type: \"sound\"\n"
-  "  data: \"sound: \\\"/sound/explosion.wav\\\"\\n"
+  "  data: \"sound: \\\"/sound/explosion.ogg\\\"\\n"
   "looping: 0\\n"
   "group: \\\"effect\\\"\\n"
   "gain: 1.0\\n"
@@ -136,41 +136,6 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "pause"
-  data: "components {\n"
-  "  id: \"gui\"\n"
-  "  component: \"/gui/pause/pause.gui\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    x: 360.0
-    y: 477.0
-    z: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
-}
-embedded_instances {
   id: "hud"
   data: "components {\n"
   "  id: \"gui\"\n"
@@ -191,6 +156,41 @@ embedded_instances {
   position {
     x: 240.0
     y: 318.0
+    z: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "pause"
+  data: "components {\n"
+  "  id: \"gui\"\n"
+  "  component: \"/gui/pause/pause.gui\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 360.0
+    y: 477.0
     z: 1.0
   }
   rotation {

@@ -1,16 +1,4 @@
 images {
   image: "/background/images/bg.png"
 }
-images {
-  image: "/background/images/earthlike_planet.png"
-}
-images {
-  image: "/background/images/gas_planet.png"
-}
-images {
-  image: "/background/images/ice_planet.png"
-}
-images {
-  image: "/background/images/ring_planet.png"
-}
 extrude_borders: 1

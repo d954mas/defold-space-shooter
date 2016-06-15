@@ -134,7 +134,7 @@ embedded_instances {
   "embedded_components {\n"
   "  id: \"sound\"\n"
   "  type: \"sound\"\n"
-  "  data: \"sound: \\\"/sound/explosion.wav\\\"\\n"
+  "  data: \"sound: \\\"/sound/explosion.ogg\\\"\\n"
   "looping: 0\\n"
   "group: \\\"effect\\\"\\n"
   "gain: 1.0\\n"
