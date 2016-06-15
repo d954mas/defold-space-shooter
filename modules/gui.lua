@@ -33,7 +33,6 @@ function M.get_button(up,down,node)
 		 function(action)
 			if(gui.pick_node(node, action.x,action.y)) then
 				if(action.released)then
-					print("clicked")
 					gui.play_flipbook(node,up)
 					return true
 				elseif(action.pressed or not(action.repeated == nil)) then

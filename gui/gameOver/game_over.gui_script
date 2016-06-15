@@ -1,7 +1,10 @@
 local render_helper=require ("render.render_helper")
+local gui_helper = require("modules.gui")
 
 function init(self)
-    msg.post(".","acquire_input_focus")
+	msg.post(".","acquire_input_focus")   
+	self.button_retry=gui_helper.get_button("button_up","button_down",gui.get_node("retry/button"))
+	self.button_menu=gui_helper.get_button("button_up","button_down",gui.get_node("main_menu/button"))
 end
 
 
@@ -21,19 +24,13 @@ function on_message(self, message_id, message, sender)
 end
 
 function on_input(self, action_id, action)
-    local boolean clicked = (action_id == hash("click") or action_id == hash("touch")) and action.pressed
-   	if(clicked) then
-   		--print(action.x .. " " .. action.y)
-   		world_position=render_helper.action_to_position(action)
-   		print("world:" .. world_position.x .. " " .. world_position.y)
-   		if(gui.pick_node(gui.get_node("retry/button"), action.x, action.y)) then
+   		if(self.button_retry.clicked(action)) then
    			print("retry clicked")
    			msg.post("controller","reset")
-   		elseif(gui.pick_node(gui.get_node("main_menu/button"), action.x, action.y)) then	
+   		elseif(self.button_menu.clicked(action)) then	
    			print("menu clicked")
    			msg.post("main:/loader","show_menu")
    		end
-   	end
 end
 
 function on_reload(self)

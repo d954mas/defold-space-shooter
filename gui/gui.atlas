@@ -16,6 +16,9 @@ images {
 images {
   image: "/gui/images/musicOn.png"
 }
+images {
+  image: "/gui/images/pause.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0

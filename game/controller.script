@@ -14,7 +14,9 @@ local function init_vars(self)
     self.player_die=false
     self.current_asteroid_speed=self.asteroid_spawn_speed
     self.score=0;
+    self.pause=false
     msg.post("game_over","disable")
+    msg.post("pause","disable")
     msg.post(".","acquire_input_focus")
 end
 
@@ -35,12 +37,12 @@ local function spawn_asteroid(self)
 end
 
 function update(self, dt)
+	if(self.pause)then return end 
 	if((changing_up or self.player_die) and speed<1)then
 		speed=render_helper.clamp(speed+changing_speed*(dt/speed),min_speed,1)
 		msg.post("main:/loader#game","set_time_step",{factor = speed, mode = 0})
 	elseif(not self.player_die and changing_down and speed>min_speed)then
 		speed=render_helper.clamp(speed-changing_speed*(dt/speed),min_speed,1)
-		print(speed)
 		msg.post("main:/loader#game","set_time_step",{factor = speed, mode = 0})
 	end
 	
@@ -104,6 +106,14 @@ function on_message(self, message_id, message, sender)
     	msg.post("#explosion","play_sound",{gain=0.4})
     	self.score=self.score+100
 		msg.post("hud","score_changed",{score=self.score})	  		
+    elseif(message_id==hash("pause"))then
+    	msg.post("pause","enable")
+    	msg.post("main:/loader#game","set_time_step",{factor = 0, mode = 0})
+    	self.pause=true
+    elseif(message_id==hash("resume"))then
+    	msg.post("pause","disable")
+    	self.pause=false
+    	msg.post("main:/loader#game","set_time_step",{factor = min_speed, mode = 0})
     end
 end
 
