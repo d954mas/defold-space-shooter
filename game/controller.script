@@ -1,5 +1,11 @@
 go.property("asteroid_spawn_speed",1)
 go.property("time_to_next_speed",4)
+local speed=1
+local min_speed=0.2
+local changing_speed=0.6
+local changing_up=false
+local changing_down=false
+local render_helper = require ("render.render_helper")
 
 local function init_vars(self) 
 	self.last_speed_changed=0
@@ -9,12 +15,16 @@ local function init_vars(self)
     self.current_asteroid_speed=self.asteroid_spawn_speed
     self.score=0;
     msg.post("game_over","disable")
+    msg.post(".","acquire_input_focus")
 end
 
 function init(self)  
     init_vars(self)
 end
 
+function final(self)
+	msg.post(".","release_input_focus")
+end	
 local function spawn_asteroid(self)
 	local position=vmath.vector3(math.random(20,700),math.random(1100,1450),1)
     local rotation=math.random(0,359)
@@ -25,6 +35,15 @@ local function spawn_asteroid(self)
 end
 
 function update(self, dt)
+	if((changing_up or self.player_die) and speed<1)then
+		speed=render_helper.clamp(speed+changing_speed*(dt/speed),min_speed,1)
+		msg.post("main:/loader#game","set_time_step",{factor = speed, mode = 0})
+	elseif(not self.player_die and changing_down and speed>min_speed)then
+		speed=render_helper.clamp(speed-changing_speed*(dt/speed),min_speed,1)
+		print(speed)
+		msg.post("main:/loader#game","set_time_step",{factor = speed, mode = 0})
+	end
+	
     self.last_asteroid_time=self.last_asteroid_time+dt
     self.last_speed_changed=self.last_speed_changed+dt
     
@@ -91,8 +110,13 @@ end
 
 
 function on_input(self, action_id, action)
-    -- Add input-handling code here
-    -- Remove this function if not needed
+    if(action.pressed)then 
+    	changing_up=true
+    	changing_down=false
+    elseif(action.released) then 
+    	changing_up=false
+    	changing_down=true
+     end
 end
 
 function on_reload(self)

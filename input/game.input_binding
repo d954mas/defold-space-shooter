@@ -18,7 +18,3 @@ gamepad_trigger {
   input: GAMEPAD_RPAD_DOWN
   action: "down"
 }
-touch_trigger {
-  input: TOUCH_MULTI
-  action: "touch"
-}

@@ -3,7 +3,7 @@ components {
   component: "/game/bullet/bullet_tail.particlefx"
   position {
     x: 0.0
-    y: -19.109697
+    y: -23.542534
     z: 0.0
   }
   rotation {

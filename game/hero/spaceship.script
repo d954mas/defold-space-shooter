@@ -18,9 +18,11 @@ local function reset(self)
 	msg.post(".","enable")
 	go.set_position(vmath.vector3(360,40,1))
     init_vars(self)	
+    self.dead=false
 end
 
 function update(self, dt)
+	if(self.dead) then return end
 	self.last_shot=self.last_shot+dt
     if(vmath.length(self.max_move) ~=0)then
     	local velocity=vmath.normalize(self.max_move)
@@ -40,6 +42,7 @@ function on_message(self, message_id, message, sender)
     	if (message.group==hash("asteroid")) then
     		msg.post("controller","player_die")
     		msg.post(".","disable")
+    		self.dead=true
     		msg.post(".","release_input_focus")
     	end
     elseif(message_id == hash("reset")) then
